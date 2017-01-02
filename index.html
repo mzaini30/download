@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app>
 	<head>
 		<meta charset="utf-8">
 		<meta name="author" content="Sindre Sorhus">
@@ -7,12 +7,20 @@
 		<title>Download</title>
 	</head>
 	<body >
-<textarea cols=40 rows=10></textarea><br>
-<button>Oke</button>
+<p>Masukkan link yang akan didownload (pisahkan dengan baris baru)</p>
+<p><textarea cols=30 rows=10></textarea></p>
+<p><button>Oke</button></p>
+<br><br>
+<p>Masukkan chapter Conan</p>
+<p><input type="text" ng-model="chapter"/></p>
+<p><textarea id="chapter" cols=30 rows=5>view-source:www.mangacanblog.com/baca-komik-detective_conan-{{chapter}}-{{1 * chapter + 1}}-bahasa-indonesia-detective_conan-{{chapter}}-terbaru.html</textarea></p>
+<p><button class="btn" data-clipboard-target="#chapter">Salin</button></p>
 <script src="jquery.js"></script>
+<script src="angular.min.js"></script>
+<script src="clipboard.js"></script>
 		<script src="multi-download.js"></script>
 		<script>
-
+new Clipboard(".btn")
 jalan = function(){
 var somearray = []
 var namelist = $("textarea").val()
